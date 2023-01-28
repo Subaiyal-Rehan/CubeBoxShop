@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CubeBox</title>
+    <style>
+    * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/backgroundimg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    background-color: #003153;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    cursor: pointer;
+    padding: 0 1vw;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 35px;
+}
+
+.navbar ul li .b {
+    text-decoration: none;
+    color: white;
+    font-size: 2.5vh;
+    transition: font-size 0.5s ease-out;
+}
+
+.navbar ul li .b:hover {
+    font-size: 2.6vh;
+    color: #00c6b8;
+}
+
+.content {
+    font-size: larger;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: whitesmoke;
+    background: rgba(0, 0, 0, .5);
+}
+
+.content h1 {
+    font-family: 'cooper black';
+    font-size: 65px;
+}
+
+.content .p {
+    font-family: 'eras demi itc';
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.btn .anchor {
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.btn {
+    padding: 15px;
+    width: 200px;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #00c6b8;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.spn {
+    background: #00c6b8;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn:hover .spn {
+    width: 100%;
+}
+
+.btn:hover .spn {
+    border: none;
+}
+
+.speedcube {
+    display: flex;
+    justify-content: center;
+    font-family: 'Arial Black';
+}
+
+h2 {
+    font-weight: 1000;
+
+}
+
+.incubeimage1 {
+    width: 30vw;
+    border: 3px solid #334b48;
+    margin: 1vw 1.1vw 0vw;
+}
+
+.incubeimage2 {
+    width: 31vw;
+    border: 3px solid #334b48;
+    margin: 1vw 1.1vw 0vw;
+}
+
+.incubeimage3 {
+    width: 30vw;
+    border: 3px solid #334b48;
+    margin: 1vw 1.1vw 0vw;
+}
+
+.btn2 .anchor2 {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.btn2 {
+    padding: 15px;
+    width: 200px;
+    margin: 20px 200px 20px 225px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #00c6b8;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.spn2 {
+    background: #00c6b8;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn2:hover .spn2 {
+    width: 100%;
+}
+
+.btn2:hover .spn2 {
+    border: none;
+}
+
+.quiz {
+    background-image: url(images/quizcube.jpg);
+    height: 95vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+h3 {
+    font-size: 6vh;
+    width: 100%;
+    position: absolute;
+    top: 227%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: whitesmoke;
+    background: rgba(0, 0, 0, .5);
+}
+
+.btn3 .anchor3 {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 2.5vh;
+}
+
+.btn3 {
+    padding: 15px;
+    width: 200px;
+    margin: 50vh 50vh 20vh 95vh;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #334b48;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.spn3 {
+    background: black;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.btn3:hover .spn3 {
+    width: 100%;
+}
+
+.btn3:hover .spn3 {
+    border: none;
+}
+
+.lubebig {
+    margin: 6vh 1vh 1vh;
+    width: 70vw;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto;
+}
+
+.lubetxt {
+    margin-top: 10vh;
+    margin-left: 25vw;
+    margin-right: 5vw;
+    width: 30vw;
+    height: 20vh;
+}
+
+.lubeimg {
+    height: 20vh;
+}
+
+.h3 {
+    font-family: 'cooper black';
+    font-size: 2.5vh;
+    margin: 0vh 0vh 3vh 16vh;
+}
+
+.p3 {
+    font-family: 'eras demi itc';
+    font-size: 2vh;
+}
+
+.collection {
+    margin: 18vh 1vh 1vh 0vh;
+    width: 99vw;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto;
+}
+
+.colectionpic {
+    margin-top: 10vh;
+    margin-left: 35vw;
+    width: 30vw;
+    height: 20vh;
+}
+
+.collectiontxt {
+    width: 30vw;
+    height: 20vh;
+    margin-top: 10vh;
+}
+
+.h4 {
+    font-family: 'cooper black';
+    font-size: 2.5vh;
+    margin: 0vh 0vh 3vh 16vh;
+}
+
+.p4 {
+    font-family: 'eras demi itc';
+    font-size: 2vh;
+}
+
+.bigcontainer{
+    background-image: url(images/bgimagelube.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.footer{
+    height: 23vh;
+    background-color: #003153;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+}
+
+.h5 {
+    color: white;
+    font-size: 2vh;
+}
+
+.spn4 .anchor2{
+    color: white;
+    line-height: 3.8vh;
+}
+
+.h52 {
+    color: white;
+    font-size: 2vh;
+}
+
+.spn5 .anchor3{
+    color: white;
+    line-height: 3.8vh;
+}
+
+.ft1 {
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    position: absolute;
+    bottom: -314%;
+    transform: translateY(-50%);
+    text-align: center;
+} 
+
+.ft {
+    justify-content: center;
+    color: white;
+    width: 100vw;
+}
+
+.ft2 {
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="navbar">
+            <img src="images/taker2.png" width="90px" class="logo">
+            <ul>
+                <li><a class="b" href="#">Home</a></li>
+                <li><a class="b" href="#">WCA</a></li>
+                <li><a class="b" href="#">Lubes</a></li>
+                <li><a class="b" href="#">3x3s</a></li>
+                <li><a class="b" href="#">4x4s</a></li>
+                <li><a class="b" href="#">5x5s</a></li>
+                <li><a class="b" href="#">6x6-15x15</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>WHICH PUZZLES ARE YOU LOOKING FOR ?</h1>
+            <p class="p">We Have Each and Every Rubik's Cube of High Quality <br> Available In Our Store at Low Prices
+                <br><br> Click Here To See:
+            </p>
+            <button class="btn" type="button"><span class="spn"></span><a class="anchor" href="#">ALL
+                    PRODUCTS</a></button>
+            <button class="btn" type="button"><span class="spn"></span><a class="anchor" href="#">NEWEST
+                    ONE</a></button>
+        </div>
+    </div> <br>
+    <div class="speedcube">
+        <h2>Popular Speed Cubes</h2>
+    </div>
+    <div class="cubeimg">
+        <img class="incubeimage1" src="images/rs3m2020lo3.jpg">
+        <img class="incubeimage2" src="images/gan11mpro.webp">
+        <img class="incubeimage3" src="images/xmantornadov3mlo.webp">
+    </div>
+    <div class="cubetag">
+        <button class="btn2"><span class="spn2"></span><a class="anchor2" href="#">Click Here For Complete Details About
+                RS3M 2020</a></button>
+        <button class="btn2"><span class="spn2"></span><a class="anchor2" href="#">Click Here For Complete Details About
+                GAN 11 M PRO</a></button>
+        <button class="btn2"><span class="spn2"></span><a class="anchor2" href="#">Click Here For Complete Details About
+                X-Man Tornado V3 M</a></button>
+    </div>
+    <div class="quiz">
+        <h3>Find The Best Speed Cube For You</h3>
+        <button class="btn3"><span class="spn3"></span><a class="anchor3" href="#">Take The Quiz</a></button>
+    </div>
+    <div class="bigcontainer">
+
+        <div class="lubebig">
+            
+            <div class="lubetxt">
+            <h4 class="h3">What Is Lubricant ?</h4>
+            <p class="p3">Lubricants are commonly used in speed cubes and puzzles to achieve a couple of things.
+                Extending the lifespan of your speed cube by reducing friction where pieces contact each other
+                internally. Change the turn speed of a puzzle (to slow down or speed up) Change the feel of a puzzle</p>
+            </div>
+            <div class="lubepic">
+                <img src="images/lube.png">
+            </div>
+        </div>
+        <div class="collection">
+            <div class="collectionpic">
+                <img src="images/collection.jpg" width="650px">
+            </div>
+            <div class="collectiontxt">
+                <h4 class="h4">Why You Should Buy Cubes</h4>
+                <p class="p4">Solving Rubik's Cube Improve Eye-Hand Coordination.
+                    These puzzle solvers have excellent reflexes and hand-eye coordination. Your Eye-Hand coordination gets improved as much as you get involved in solving the cube. Good eye-hand coordination helps you directly in many activities which you perform on a regular basis.</p>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="know">
+            <h5 class="h5">Know About Us:</h5>
+            <span class="spn4"><a class="anchor2" href="#">Home</a><br><a class="anchor2" href="#">About</a>  <br><a class="anchor2" href="#">Services</a></span>
+        </div>
+        <div class="help">
+            <h5 class="h52">Let Us Help You</h5>
+            <span class="spn5"><a href="#" class="anchor3">Contact Us</a> <br> <a href="#" class="anchor3">Shipping & Delivery</a> <br> <a href="#" class="anchor3">Return & Exchange</a></span>
+        </div>
+        <div class="ft1">
+            <span class="ft">&copy; 2020-2023 CubeBoxShop</span> <br> <span class="ft ft2">Designed By Subaiyal Rehan</span>
+        </div>
+        </footer>
+</body>
+
+</html>
